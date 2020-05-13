@@ -1,5 +1,7 @@
 # CRM-vue 
 
+## HTML, CSS, Javascript, VUE.js, Materialize, Firebase 
+
 ## Project setup
 ```
 npm install

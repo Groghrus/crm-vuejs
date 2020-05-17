@@ -6,6 +6,7 @@ import store from './store/store'
 import dateFilter from './filters/date.filter'
 import currencyFilter from './filters/currency.filter'
 import tooltipDirective from './directives/tooltip.directive'
+import Paginate from 'vuejs-paginate'
 import Vuelidate from 'vuelidate/src'
 import messagePlugin from './utils/message.plugin'
 import Loader from './components/app/Loader'
@@ -21,6 +22,7 @@ Vue.config.productionTip = false
 
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
+Vue.component('Paginate', Paginate)
 Vue.filter('date', dateFilter)
 Vue.filter('currency', currencyFilter)
 Vue.directive('tooltip', tooltipDirective)

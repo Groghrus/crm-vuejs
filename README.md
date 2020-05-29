@@ -2,6 +2,8 @@
 
 ## HTML, CSS, Javascript, VUE.js, Materialize, Firebase 
 
+## Link Deployed Application: https://crm-vuejs-2a6f7.web.app/
+
 ## Project setup
 ```
 npm install

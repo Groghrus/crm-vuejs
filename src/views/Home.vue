@@ -43,7 +43,8 @@
         },
         async mounted() {
             this.currency = await this.$store.dispatch('fetchCurrency')
-            
+            this.currency.rates['EUR'] = 1
+            //console.log(this.currency)
             this.loading = false
         },
         methods:{

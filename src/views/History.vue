@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{ 'HistoryRecords' | localize }}</h3>
     </div>
     
     <div class="history-chart">
       <canvas ref="canvas"></canvas>
     </div>
     <Loader v-if="loading"/>
-    <p class="center" v-else-if="!records.length"> Записей пока нет
-      <router-link to="/record">Добавить первую запись</router-link>
+    <p class="center" v-else-if="!records.length"> {{'NoRecordsYet' | localize}}
+      <router-link to="/record">{{'AddFirstEntry' | localize}}</router-link>
     </p>
     <section v-else>
       <HistoryTable
@@ -39,7 +39,11 @@
         extends: Pie,
         mixins: [paginationMixin],
         components: {HistoryTable},
-        props: {},
+        metaInfo() {
+            return {
+                title: this.$title('Menu_History')
+            }
+        },
         data() {
             return {
                 loading: true,
@@ -77,7 +81,7 @@
                             }, 0)
                         }),
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(255,99,99,0.2)',
                             'rgba(54, 162, 235, 0.2)',
                             'rgba(255, 206, 86, 0.2)',
                             'rgba(75, 192, 192, 0.2)',
@@ -85,7 +89,7 @@
                             'rgba(255, 159, 64, 0.2)'
                         ],
                         borderColor: [
-                            'rgba(255, 99, 132, 1)',
+                            'rgb(255,99,99)',
                             'rgba(54, 162, 235, 1)',
                             'rgba(255, 206, 86, 1)',
                             'rgba(75, 192, 192, 1)',
@@ -102,6 +106,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="css" scoped>
+
 
 </style>

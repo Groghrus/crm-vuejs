@@ -148,3 +148,9 @@
     max-width: 600px;
     margin: 0 auto
 }
+
+.pagination li.active {
+    background-color: #4caf50 !important;
+}
+
+

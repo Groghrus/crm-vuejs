@@ -8,6 +8,7 @@
       />
       <Sidebar
               v-model="isOpen"
+              :key="locale"
       />
       
       <main
@@ -19,8 +20,8 @@
         </div>
       </main>
       
-      <div class="fixed-action-btn">
-        <router-link class="btn-floating btn-large green" to="/record" v-tooltip="'Создать новую запись'">
+      <div class="fixed-action-btn" :key="locale + '1'">
+        <router-link class="btn-floating btn-large green" to="/record" v-tooltip="'CreateNewRecord'">
           <i class="large material-icons">add</i>
         </router-link>
       </div>
@@ -44,14 +45,21 @@
             }
         },
         async mounted() {
-            if (!Object.keys(this.$store.getters.info).length) {
+            /*if (!Object.keys(this.$store.getters.info).length) {
+                await this.$store.dispatch('fetchInfo')
+            }*/
+            if (!this.$store.getters.info.bill || !this.$store.getters.info.name) {
                 await this.$store.dispatch('fetchInfo')
             }
+            
             this.loading = false
         },
         computed: {
             error() {
                 return this.$store.getters.error
+            },
+            locale() {
+                return this.$store.getters.info.locale
             }
         },
         watch: {

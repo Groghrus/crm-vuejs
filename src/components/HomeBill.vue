@@ -2,7 +2,7 @@
   <div class="col s12 m6 l4">
     <div class="card light-green lighten-2 bill-card">
       <div class="card-content white-text">
-        <span class="card-title">Счет в валюте</span>
+        <span class="card-title">{{'BillInCurrency'|localize}}</span>
         
         <p class="currency-line"
            v-for="cur of currencies"
@@ -26,7 +26,9 @@
         },
         computed: {
             base() {
-                return this.$store.getters.info.bill / (this.rates['RUB']/this.rates['EUR'])
+                return (
+                    this.$store.getters.info.bill / (this.rates['RUB'] / this.rates['EUR'])
+                )
             }
         },
         methods: {
